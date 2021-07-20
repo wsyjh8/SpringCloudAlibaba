@@ -16,7 +16,7 @@ import org.springframework.web.client.RestTemplate;
 
 @RestController
 @Slf4j
-public class OrderController {
+public class OrderController2 {
 
 
 
@@ -32,7 +32,7 @@ public class OrderController {
     @Autowired
     private DiscoveryClient discoveryClient;
 
-    @RequestMapping("/order/pro/{pid}")
+    @RequestMapping("/order/pro2/{pid}")
     public Order order(@PathVariable("pid") Integer pid){
 
         log.info("接收到{}号商品的下单请求，接下来调用商品微服务查询此商品信息，",pid);
@@ -48,6 +48,11 @@ public class OrderController {
 
         Product product = productService.findByPid(pid);
 
+        try {
+            Thread.sleep(20001);
+        }catch (InterruptedException e){
+            e.printStackTrace();
+        }
 
         log.info("查询到{}号商品的信息，内容是：{}",pid, JSON.toJSONString(product));
 
@@ -60,14 +65,23 @@ public class OrderController {
         order.setPprice(product.getPprice());
         order.setNumber(1);
 
-        orderService.createOrder(order);
+   //     orderService.createOrder(order);
 
         log.info("创建订单成功，订单信息为{}", JSON.toJSONString(order));
 
+        try {
+            Thread.sleep(100);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         return order;
     }
 
 
 
+    @RequestMapping("order/message")
+    public String message(){
+        return "测试";
+    }
 
 }
