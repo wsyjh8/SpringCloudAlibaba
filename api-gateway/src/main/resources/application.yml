@@ -19,6 +19,7 @@ spring:
             order: 1
             predicates:
               - Path=/product-serv/**
+              - Age=18,60
             filters:
               - StripPrefix=1
 
