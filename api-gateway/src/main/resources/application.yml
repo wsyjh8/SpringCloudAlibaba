@@ -4,6 +4,12 @@ server:
 spring:
     application:
         name: api-gateway
+    zipkin:
+     base-url: http://127.0.0.1:9411/  #zipkin server的请求地址
+    discoveryClientEnabled: false #让nacos把它当成一个URL，而不要当做服务名
+    sleuth:
+     sampler:
+      probability: 1.0  #采样的百分比
 
     cloud:
       nacos:
@@ -19,7 +25,7 @@ spring:
             order: 1
             predicates:
               - Path=/product-serv/**
-              - Age=18,60
+ #             - Age=18,60
             filters:
               - StripPrefix=1
 

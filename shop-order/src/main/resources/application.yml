@@ -11,6 +11,8 @@ spring:
     url: jdbc:mysql://47.92.34.234/shop?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8&useSSL=true
     username: root
     password: a7869292
+    hikari:
+      max-lifetime: 30000
 
   jpa:
     properties:

@@ -3,6 +3,7 @@ package com.itheima.predicates;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.cloud.gateway.handler.predicate.AbstractRoutePredicateFactory;
 import org.springframework.cloud.gateway.handler.predicate.BeforeRoutePredicateFactory;
+import org.springframework.stereotype.Component;
 import org.springframework.web.server.ServerWebExchange;
 
 import java.time.ZonedDateTime;
@@ -11,6 +12,8 @@ import java.util.Collections;
 import java.util.List;
 import java.util.function.Predicate;
 
+
+@Component
 public class AgeRoutePredicateFactory extends  AbstractRoutePredicateFactory<AgeRoutePredicateFactory.Config>{
 
     @Override
