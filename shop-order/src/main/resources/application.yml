@@ -31,6 +31,13 @@ spring:
       filter:
         enabled: false
 
+rocketmq:
+  name-server: 47.92.34.234:9877
+  producer:
+    group: shop-order
+
+
+
 
 
 
